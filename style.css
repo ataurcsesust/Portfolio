@@ -1,4 +1,4 @@
-/* General Reset */
+
 * {
   margin: 0;
   padding: 0;
@@ -7,25 +7,28 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background: #121926;
+  background: #121926; 
   color: #fff;
   line-height: 1.6;
 }
+
 
 nav {
   background: #0f1521;
   padding: 20px 40px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; 
   align-items: center;
   position: sticky;
   top: 0;
   z-index: 100;
 }
 
-nav h2 {
-  color: #28d15e;
+
+.nav-logo { 
+  color: #28d15e; 
   font-size: 1.8rem;
+  font-weight: 700;
 }
 
 nav ul {
@@ -38,13 +41,14 @@ nav ul li a {
   text-decoration: none;
   color: #fff;
   font-weight: 500;
+  transition: color 0.3s;
 }
 
 nav ul li a:hover {
   color: #28d15e;
 }
 
-/* Hero Section */
+
 .hero {
   display: flex;
   flex-wrap: wrap;
@@ -64,7 +68,7 @@ nav ul li a:hover {
 }
 
 .hero-text h1 span {
-  color: #28d15e;
+  color: #28d15e; 
 }
 
 .hero-text p {
@@ -81,7 +85,7 @@ nav ul li a:hover {
   box-shadow: 0 0 15px rgba(40, 209, 94, 0.5);
 }
 
-/* About Section */
+
 #about {
   padding: 60px 20px;
   max-width: 900px;
@@ -98,7 +102,7 @@ nav ul li a:hover {
   color: #ccc;
 }
 
-/* Skills Section */
+
 .skills {
   padding: 60px 20px;
   background: #1a1f2f;
@@ -155,7 +159,7 @@ nav ul li a:hover {
   color: #bbb;
 }
 
-/* Projects Section */
+
 #projects {
   padding: 60px 20px;
   max-width: 900px;
@@ -190,6 +194,11 @@ nav ul li a:hover {
   text-decoration: none;
   display: inline-block;
   margin-top: 10px;
+  transition: color 0.3s;
+}
+
+.project a:hover {
+    color: #fff;
 }
 
 /* Contact Section */
@@ -226,7 +235,13 @@ nav ul li a:hover {
   color: #28d15e;
   margin-right: 15px;
   font-size: 1.2rem;
+  transition: color 0.3s;
 }
+
+.socials a:hover {
+    color: #fff;
+}
+
 
 .btn {
   display: inline-block;
@@ -264,6 +279,11 @@ nav ul li a:hover {
   border-radius: 5px;
   font-weight: bold;
   cursor: pointer;
+  transition: background 0.3s;
+}
+
+.contact-form button:hover {
+    background: #39e378;
 }
 
 .social-icon {
@@ -273,3 +293,33 @@ nav ul li a:hover {
   margin-right: 8px;
 }
 
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        text-align: center;
+    }
+    .nav-logo {
+        margin-bottom: 15px;
+    }
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .hero {
+        flex-direction: column;
+    }
+    .hero-text {
+        order: 2;
+    }
+    .hero-image {
+        order: 1;
+    }
+    .contact {
+        flex-direction: column;
+    }
+    .contact-info, .contact-form {
+        flex: none;
+        width: 100%;
+    }
+}
