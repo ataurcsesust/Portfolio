@@ -1,4 +1,4 @@
-
+/* General Reset */
 * {
   margin: 0;
   padding: 0;
@@ -7,26 +7,26 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background: #121926; 
+  background: #121926;
   color: #fff;
   line-height: 1.6;
 }
 
-
+/* Navigation */
 nav {
   background: #0f1521;
   padding: 20px 40px;
   display: flex;
-  justify-content: space-between; 
+  justify-content: space-between; /* মেনুটিকে ডান দিকে সরাতে সাহায্য করবে */
   align-items: center;
   position: sticky;
   top: 0;
   z-index: 100;
 }
 
-
+/* Portfolio লোগো বা টাইটেল স্টাইল (বাম দিকে থাকবে) */
 .nav-logo { 
-  color: #28d15e; 
+  color: #28d15e;
   font-size: 1.8rem;
   font-weight: 700;
 }
@@ -48,7 +48,7 @@ nav ul li a:hover {
   color: #28d15e;
 }
 
-
+/* Hero Section */
 .hero {
   display: flex;
   flex-wrap: wrap;
@@ -68,7 +68,7 @@ nav ul li a:hover {
 }
 
 .hero-text h1 span {
-  color: #28d15e; 
+  color: #28d15e;
 }
 
 .hero-text p {
@@ -85,7 +85,7 @@ nav ul li a:hover {
   box-shadow: 0 0 15px rgba(40, 209, 94, 0.5);
 }
 
-
+/* About Section */
 #about {
   padding: 60px 20px;
   max-width: 900px;
@@ -102,7 +102,7 @@ nav ul li a:hover {
   color: #ccc;
 }
 
-
+/* Skills Section */
 .skills {
   padding: 60px 20px;
   background: #1a1f2f;
@@ -159,7 +159,7 @@ nav ul li a:hover {
   color: #bbb;
 }
 
-
+/* Projects Section */
 #projects {
   padding: 60px 20px;
   max-width: 900px;
@@ -242,7 +242,6 @@ nav ul li a:hover {
     color: #fff;
 }
 
-
 .btn {
   display: inline-block;
   margin-top: 15px;
@@ -293,7 +292,7 @@ nav ul li a:hover {
   margin-right: 8px;
 }
 
-
+/* Mobile Responsiveness (ঐচ্ছিক: ছোট স্ক্রিনের জন্য) */
 @media (max-width: 768px) {
     nav {
         flex-direction: column;
