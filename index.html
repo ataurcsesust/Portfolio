@@ -1,118 +1,313 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Md Ataur Rahman - Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Md Ataur Rahman - Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --bg:#0a0e1a;
+  --bg2:#0f1525;
+  --bg3:#141b2d;
+  --bg4:#1a2238;
+  --accent:#00e676;
+  --accent2:#00b894;
+  --text:#e8eaf6;
+  --text2:#8892b0;
+  --text3:#ccd6f6;
+  --border:rgba(0,230,118,0.15);
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Space Grotesk',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;}
 
+nav{
+  background:rgba(10,14,26,0.92);
+  backdrop-filter:blur(12px);
+  padding:18px 5%;
+  display:flex;justify-content:space-between;align-items:center;
+  position:sticky;top:0;z-index:999;
+  border-bottom:1px solid var(--border);
+}
+.nav-logo{font-family:'Fira Code',monospace;color:var(--accent);font-size:1.2rem;font-weight:500;letter-spacing:1px;}
+.nav-logo span{color:var(--text2);}
+nav ul{display:flex;list-style:none;gap:2rem;}
+nav ul li a{text-decoration:none;color:var(--text2);font-size:.9rem;font-weight:500;letter-spacing:.5px;transition:color .3s;position:relative;}
+nav ul li a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--accent);transition:width .3s;}
+nav ul li a:hover{color:var(--accent);}
+nav ul li a:hover::after{width:100%;}
+
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:space-between;padding:80px 5%;gap:40px;flex-wrap:wrap;background:radial-gradient(ellipse at 70% 50%,rgba(0,230,118,.06) 0%,transparent 60%);}
+.hero-text{flex:1;min-width:300px;}
+.hero-tag{font-family:'Fira Code',monospace;color:var(--accent);font-size:.85rem;margin-bottom:16px;opacity:.8;}
+.hero-text h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:700;color:var(--text3);line-height:1.15;margin-bottom:12px;}
+.hero-text h1 span{color:var(--accent);}
+.hero-subtitle{font-family:'Fira Code',monospace;font-size:1rem;color:var(--accent);margin-bottom:10px;min-height:26px;}
+.hero-location{color:var(--text2);font-size:.9rem;margin-bottom:32px;}
+.hero-location i{color:var(--accent);margin-right:6px;}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;}
+.btn-primary{padding:12px 28px;background:var(--accent);color:#0a0e1a;border:none;border-radius:6px;font-weight:700;font-size:.9rem;cursor:pointer;text-decoration:none;transition:all .3s;letter-spacing:.5px;}
+.btn-primary:hover{background:#39ff8a;transform:translateY(-2px);}
+.btn-outline{padding:12px 28px;background:transparent;color:var(--accent);border:1.5px solid var(--accent);border-radius:6px;font-weight:600;font-size:.9rem;cursor:pointer;text-decoration:none;transition:all .3s;letter-spacing:.5px;}
+.btn-outline:hover{background:rgba(0,230,118,.1);transform:translateY(-2px);}
+.hero-image{display:flex;justify-content:center;align-items:center;position:relative;}
+.profile-wrap{position:relative;width:240px;height:240px;}
+.profile-ring{position:absolute;inset:-8px;border-radius:50%;border:2px solid transparent;background:linear-gradient(var(--bg),var(--bg)) padding-box,linear-gradient(135deg,var(--accent),transparent 50%,var(--accent)) border-box;animation:spin 6s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
+.profile-pic{width:240px;height:240px;border-radius:50%;object-fit:cover;border:4px solid var(--bg3);display:block;position:relative;z-index:1;}
+
+section{padding:80px 5%;}
+.section-label{font-family:'Fira Code',monospace;color:var(--accent);font-size:.8rem;letter-spacing:2px;margin-bottom:10px;opacity:.8;}
+.section-title{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;color:var(--text3);margin-bottom:12px;}
+.section-line{width:50px;height:3px;background:var(--accent);border-radius:2px;margin-bottom:36px;}
+
+#about{background:var(--bg2);}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;}
+.about-text p{color:var(--text2);line-height:1.9;font-size:.95rem;margin-bottom:16px;}
+.about-stats{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.stat-card{background:var(--bg4);border:1px solid var(--border);border-radius:10px;padding:20px;text-align:center;}
+.stat-card .num{font-size:2rem;font-weight:700;color:var(--accent);}
+.stat-card .lbl{font-size:.8rem;color:var(--text2);margin-top:4px;}
+
+#skills{background:var(--bg);}
+.skills-intro{color:var(--text2);max-width:600px;margin-bottom:48px;font-size:.95rem;line-height:1.8;}
+.skills-groups{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;}
+.skill-group{background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:24px;transition:transform .3s,border-color .3s;}
+.skill-group:hover{transform:translateY(-6px);border-color:rgba(0,230,118,.4);}
+.skill-group-icon{width:44px;height:44px;background:rgba(0,230,118,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;color:var(--accent);margin-bottom:16px;}
+.skill-group h3{color:var(--text3);font-size:1rem;font-weight:600;margin-bottom:8px;}
+.skill-group p{color:var(--text2);font-size:.85rem;line-height:1.7;}
+.skill-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
+.tag{background:rgba(0,230,118,.08);color:var(--accent);border:1px solid rgba(0,230,118,.2);padding:4px 12px;border-radius:20px;font-size:.75rem;font-family:'Fira Code',monospace;}
+
+#projects{background:var(--bg2);}
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;}
+.project-card{background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:28px;transition:transform .3s,border-color .3s,box-shadow .3s;display:flex;flex-direction:column;}
+.project-card:hover{transform:translateY(-8px);border-color:rgba(0,230,118,.4);box-shadow:0 20px 40px rgba(0,0,0,.3);}
+.project-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;}
+.proj-icon{font-size:1.8rem;color:var(--accent);}
+.proj-links{display:flex;gap:12px;}
+.proj-links a{color:var(--text2);font-size:1rem;transition:color .3s;}
+.proj-links a:hover{color:var(--accent);}
+.project-card h3{color:var(--text3);font-size:1.05rem;font-weight:600;margin-bottom:10px;}
+.project-card p{color:var(--text2);font-size:.85rem;line-height:1.8;flex:1;margin-bottom:16px;}
+.proj-tags{display:flex;flex-wrap:wrap;gap:8px;}
+
+#contact{background:var(--bg);}
+.contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:60px;align-items:start;}
+.contact-info h3{color:var(--text3);font-size:1rem;font-weight:600;margin-bottom:24px;}
+.contact-item{display:flex;align-items:center;gap:14px;margin-bottom:20px;color:var(--text2);font-size:.9rem;}
+.contact-item-icon{width:40px;height:40px;background:rgba(0,230,118,.08);border:1px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:.9rem;flex-shrink:0;}
+.contact-item a{color:var(--text2);text-decoration:none;transition:color .3s;}
+.contact-item a:hover{color:var(--accent);}
+.socials-row{display:flex;gap:14px;margin-top:30px;}
+.social-btn{width:44px;height:44px;background:var(--bg3);border:1px solid var(--border);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--text2);font-size:1.1rem;text-decoration:none;transition:all .3s;}
+.social-btn:hover{background:rgba(0,230,118,.1);color:var(--accent);border-color:rgba(0,230,118,.4);}
+.contact-form{display:flex;flex-direction:column;gap:14px;}
+.form-group input,.form-group textarea{width:100%;padding:14px 16px;background:var(--bg3);border:1px solid rgba(255,255,255,.08);border-radius:8px;color:var(--text);font-family:'Space Grotesk',sans-serif;font-size:.9rem;resize:none;outline:none;transition:border-color .3s;}
+.form-group input:focus,.form-group textarea:focus{border-color:rgba(0,230,118,.4);}
+.form-group input::placeholder,.form-group textarea::placeholder{color:var(--text2);}
+.form-submit{padding:14px;background:var(--accent);color:#0a0e1a;border:none;border-radius:8px;font-weight:700;font-family:'Space Grotesk',sans-serif;font-size:.95rem;cursor:pointer;letter-spacing:.5px;transition:all .3s;}
+.form-submit:hover{background:#39ff8a;transform:translateY(-2px);}
+
+footer{background:var(--bg2);padding:30px 5%;text-align:center;color:var(--text2);font-size:.85rem;border-top:1px solid var(--border);}
+footer span{color:var(--accent);}
+.cursor{display:inline-block;width:2px;background:var(--accent);animation:blink .7s infinite;margin-left:2px;vertical-align:middle;height:1em;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}
+
+@media(max-width:768px){
+  nav ul{gap:1rem;}
+  .hero{flex-direction:column;text-align:center;padding-top:100px;}
+  .hero-btns{justify-content:center;}
+  .about-grid,.contact-grid{grid-template-columns:1fr;}
+  .about-stats{grid-template-columns:1fr 1fr;}
+}
+</style>
 </head>
 <body>
 
-  <nav>
-    
-    <div class="nav-logo">Portfolio</div>
-    
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+<nav>
+  <div class="nav-logo">&lt;<span>ataur</span> /&gt;</div>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 
-  <section class="hero" id="home">
-    <div class="hero-text">
-      <div>
-        <h1>Hi, I'm <span>Ataur Rahman</span></h1>
-        <p>Programmer | Competitive Coder | Web Developer</p>
-      </div>
-      <p>From Kurigram, Bangladesh</p>
-
-
+<section class="hero" id="home">
+  <div class="hero-text">
+    <h1>Hi, I'm <span>Ataur Rahman</span></h1>
+    <div class="hero-subtitle" id="typing-text"><span class="cursor"></span></div>
+    <div class="hero-location"><i class="fas fa-map-marker-alt"></i>Kurigram, Bangladesh &nbsp;·&nbsp; SUST CSE</div>
+    <div class="hero-btns">
+      <a href="#projects" class="btn-primary">View Projects</a>
+      <a href="#contact" class="btn-outline">Contact Me</a>
     </div>
-    <div class="hero-image">
-      <img src="profile.jpg" alt="Ataur's Photo" class="profile-pic" />
+  </div>
+  <div class="hero-image">
+    <div class="profile-wrap">
+      <div class="profile-ring"></div>
+      <!-- profile.jpg এখানে রাখো, অথবা নিচের img tag uncomment করো -->
+      <img src="profile.jpg" alt="Ataur Rahman" class="profile-pic" onerror="this.style.display='none';document.getElementById('pfp-fallback').style.display='flex';" />
+      <div id="pfp-fallback" style="display:none;width:240px;height:240px;border-radius:50%;background:var(--bg4);border:4px solid var(--bg3);align-items:center;justify-content:center;flex-direction:column;color:var(--text2);font-size:4rem;position:absolute;top:0;left:0;z-index:1;">AR</div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="about">
-    <h2>About Me</h2>
-    
-    <p> I'm currently a CSE student at SUST. I am a passionate programmer and competitive coder with experience in C++, web development, and problem solving. I love building efficient solutions and learning new technologies.</p>
+<section id="about">
+  <div class="section-title">About Me</div>
+  <div class="section-line"></div>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>I'm a CSE student at Shahjalal University of Science and Technology (SUST), Sylhet, with a strong passion for competitive programming and full-stack web development.</p>
+      <p>I enjoy solving algorithmic problems on Codeforces and building efficient, real-world applications. I'm constantly exploring new technologies — from C++ and data structures to modern web frameworks and AI/ML.</p>
+      <p>When I'm not coding, I enjoy gardening at my home in Fulbari, Kurigram — a hobby I've had since childhood.</p>
+    </div>
+    <div class="about-stats">
+      <div class="stat-card"><div class="num">CF</div><div class="lbl">Codeforces Active</div></div>
+      <div class="stat-card"><div class="num">3+</div><div class="lbl">Projects Built</div></div>
+      <div class="stat-card"><div class="num">Full</div><div class="lbl">Stack Developer</div></div>
+      <div class="stat-card"><div class="num">ML</div><div class="lbl">Enthusiast</div></div>
+    </div>
+  </div>
+</section>
 
-  </section>
+<section id="skills">
+  
+  <div class="section-title">What I Can Do</div>
+  <div class="section-line"></div>
+  <p class="skills-intro">I'm a full-stack developer and competitive programmer. I build everything from algorithmic solutions to production-ready web applications, and I'm actively exploring AI/ML.</p>
+  <div class="skills-groups">
+    <div class="skill-group">
+      <div class="skill-group-icon"><i class="fas fa-code"></i></div>
+      <h3>Competitive Programming</h3>
+      <p>Active on Codeforces. Strong foundation in algorithms, data structures, and problem-solving with C++.</p>
+      <div class="skill-tags"><span class="tag">C++</span><span class="tag">C</span><span class="tag">Algorithms</span><span class="tag">DSA</span></div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-icon"><i class="fas fa-layer-group"></i></div>
+      <h3>Frontend Development</h3>
+      <p>Building modern, responsive UIs with React and Next.js. Comfortable with component architecture and state management.</p>
+      <div class="skill-tags"><span class="tag">React.js</span><span class="tag">Next.js</span><span class="tag">HTML</span><span class="tag">CSS</span></div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-icon"><i class="fas fa-server"></i></div>
+      <h3>Backend Development</h3>
+      <p>RESTful APIs, authentication systems, and server-side logic with Node.js, NestJS, and Django.</p>
+      <div class="skill-tags"><span class="tag">Node.js</span><span class="tag">NestJS</span><span class="tag">Django</span><span class="tag">Java EE</span></div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-icon"><i class="fas fa-database"></i></div>
+      <h3>Databases</h3>
+      <p>Working with both SQL and NoSQL databases. Experience with MongoDB, Oracle SQL, and Prisma ORM.</p>
+      <div class="skill-tags"><span class="tag">MongoDB</span><span class="tag">Oracle SQL</span><span class="tag">Prisma</span></div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-icon"><i class="fas fa-brain"></i></div>
+      <h3>AI / Machine Learning</h3>
+      <p>Learning ML fundamentals — SVM classifiers, model deployment with FastAPI, and pickle-based serving.</p>
+      <div class="skill-tags"><span class="tag">Python</span><span class="tag">scikit-learn</span><span class="tag">FastAPI</span><span class="tag">Pandas</span></div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-icon"><i class="fas fa-tools"></i></div>
+      <h3>Other Technologies</h3>
+      <p>Java application development, JSP/Servlets, JDBC, and general software engineering practices.</p>
+      <div class="skill-tags"><span class="tag">Java</span><span class="tag">JDBC</span><span class="tag">JSP</span><span class="tag">Git</span></div>
+    </div>
+  </div>
+</section>
 
-  <section class="skills" id="skills">
-    <div class="container">
-      <h2>What can I do</h2>
-      <p class="skills-subtitle">
-        I'm passionate about software development. While I'm just starting out, I've already completed one project and am eager to keep building and learning. Want to follow my journey? Check out my project portfolio and online resume.
-      </p>
-
-      <div class="skills-grid">
-        <div class="skill-card">
-          <div class="skill-icon">
-            <i class="fas fa-code"></i>
-          </div>
-          <h3>C, C++, Java, Python</h3>
-          <p>I've built strong programming fundamentals using C, C++,Java and Python. These languages form the backbone of my problem-solving and algorithmic thinking.</p>
+<section id="projects">
+  <div class="section-title">Projects</div>
+  <div class="section-line"></div>
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="project-top">
+        <div class="proj-icon"><i class="fas fa-atom"></i></div>
+        <div class="proj-links">
+          <a href="https://github.com/ataurcsesust/Project" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="https://github.com/ataurcsesust/Project" target="_blank"><i class="fas fa-external-link-alt"></i></a>
         </div>
+      </div>
+      <h3>Periodic Table Management System</h3>
+      <p>A console-based C++ application providing detailed information about all chemical elements from the periodic table — with search, filter, and display features.</p>
+      <div class="proj-tags"><span class="tag">C++</span><span class="tag">OOP</span><span class="tag">File I/O</span></div>
+    </div>
+    <div class="project-card" style="border:1px dashed rgba(0,230,118,.2);opacity:.7;">
+      <div class="project-top"><div class="proj-icon"><i class="fas fa-graduation-cap"></i></div></div>
+      <h3>Edemy — Learning Management System</h3>
+      <p>A full-featured LMS built with React and JavaScript. Supports course browsing, enrollment, and student dashboard — with clean UI and asset management.</p>
+      <div class="proj-tags"><span class="tag">React.js</span><span class="tag">JavaScript</span><span class="tag">Node.js</span><span class="tag">MongoDB</span></div>
+    </div>
+    <div class="project-card" style="border:1px dashed rgba(0,230,118,.2);opacity:.7;">
+      <div class="project-top"><div class="proj-icon"><i class="fas fa-shopping-cart"></i></div></div>
+      <h3>Django E-Commerce Platform</h3>
+      <p>An e-commerce web app built with Django featuring product listings, cart management, user authentication, and order/review models.</p>
+      <div class="proj-tags"><span class="tag">Django</span><span class="tag">Python</span><span class="tag">SQLite</span></div>
+    </div>
+  </div>
+</section>
 
-        <div class="skill-card">
-          <div class="skill-icon">
-            <i class="fab fa-html5"></i>
-          </div>
-          <h3>HTML, CSS & Javascript</h3>
-          <p>I use HTML, CSS and Javascript to design responsive, clean, and structured web pages — a solid start to my journey in front-end development.</p>
-        </div>
+<section id="contact">
+
+  <div class="section-title">Get In Touch</div>
+  <div class="section-line"></div>
+  <div class="contact-grid">
+    <div>
+      <h3>Let's work together</h3>
+      <div class="contact-item">
+        <div class="contact-item-icon"><i class="fas fa-envelope"></i></div>
+        <a href="mailto:ataur.rahman.33660@gmail.com">ataur.rahman.33660@gmail.com</a>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon"><i class="fas fa-phone"></i></div>
+        <span>+880 1319 133660</span>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon"><i class="fas fa-map-marker-alt"></i></div>
+        <span>Sylhet, Bangladesh (SUST)</span>
+      </div>
+      <div class="socials-row">
+        <a href="https://github.com/ataurcsesust" target="_blank" class="social-btn"><i class="fab fa-github"></i></a>
+        <a href="https://www.facebook.com/md.ataur.rahman.not.available" target="_blank" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social-btn" title="Codeforces"><i class="fas fa-code"></i></a>
       </div>
     </div>
-  </section>
-
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="project">
-
-      <h3>Modern Periodic Table Management System</h3>
-      <p>This Modern Periodic Table Management System is a console-based application written in C++ that allows users to interact with detailed information about chemical elements from the periodic table. </p>
-      <a href="https://github.com/ataurcsesust/Project" target="_blank">View Project</a>
-
-
-  </section>
-
-  <section class="contact" id="contact">
-    <div class="contact-info">
-      <h2>Contact Me</h2>
-      <p><i class="fas fa-paper-plane"></i> ataur.rahman.33660@gmail.com</p>
-      <p><i class="fas fa-phone"></i> +8801319133660</p>
-      <div class="socials">
-        <div class="socials">
-
-          <a href="https://www.facebook.com/md.ataur.rahman.not.available" target="_blank">
-            <i class="fab fa-facebook-f"></i>
-          </a>
-
-          <a href="https://github.com/ataurcsesust" target="_blank">
-            <i class="fab fa-github"></i>
-          </a> 
-
-        </div>
-
-      </div>
-    </div>
-
-    <form class="contact-form">
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Your Email" required />
-      <textarea rows="6" placeholder="Your Message" required></textarea>
-      <button type="submit">Submit</button>
+    <form class="contact-form" onsubmit="return false;">
+      <div class="form-group"><input type="text" placeholder="Your Name" required/></div>
+      <div class="form-group"><input type="email" placeholder="Your Email" required/></div>
+      <div class="form-group"><textarea rows="5" placeholder="Your Message" required></textarea></div>
+      <button class="form-submit" type="submit">Send Message &nbsp;<i class="fas fa-paper-plane"></i></button>
     </form>
-  </section>
+  </div>
+</section>
 
+<footer>
+  <p>Designed & Built by <span>Ataur Rahman</span> &nbsp;·&nbsp; SUST CSE &nbsp;·&nbsp; <span>&lt;/&gt;</span> with passion</p>
+</footer>
+
+<script>
+const roles=['Full Stack Developer','Competitive Programmer','AI & ML Enthusiast','CSE Student @ SUST'];
+let ri=0,ci=0,del=false;
+const el=document.getElementById('typing-text');
+function type(){
+  const word=roles[ri];
+  if(!del){ci++;el.innerHTML=word.slice(0,ci)+'<span class="cursor"></span>';if(ci===word.length){del=true;setTimeout(type,1800);return;}}
+  else{ci--;el.innerHTML=word.slice(0,ci)+'<span class="cursor"></span>';if(ci===0){del=false;ri=(ri+1)%roles.length;}}
+  setTimeout(type,del?60:90);
+}
+type();
+const links=document.querySelectorAll('nav ul li a');
+window.addEventListener('scroll',()=>{
+  let cur='';
+  document.querySelectorAll('section').forEach(s=>{if(pageYOffset>=s.offsetTop-120)cur=s.getAttribute('id');});
+  links.forEach(l=>{l.style.color=l.getAttribute('href')==='#'+cur?'var(--accent)':'';});
+});
+</script>
 </body>
 </html>
