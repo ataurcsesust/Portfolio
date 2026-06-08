@@ -178,7 +178,6 @@ footer span{color:var(--accent);}
 </section>
 
 <section id="skills">
-  
   <div class="section-title">What I Can Do</div>
   <div class="section-line"></div>
   <p class="skills-intro">I'm a full-stack developer and competitive programmer. I build everything from algorithmic solutions to production-ready web applications, and I'm actively exploring AI/ML.</p>
@@ -254,7 +253,6 @@ footer span{color:var(--accent);}
 </section>
 
 <section id="contact">
-
   <div class="section-title">Get In Touch</div>
   <div class="section-line"></div>
   <div class="contact-grid">
@@ -274,16 +272,28 @@ footer span{color:var(--accent);}
       </div>
       <div class="socials-row">
         <a href="https://github.com/ataurcsesust" target="_blank" class="social-btn"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/ataur-rahman-215464385" target="_blank" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
         <a href="https://www.facebook.com/md.ataur.rahman.not.available" target="_blank" class="social-btn"><i class="fab fa-facebook-f"></i></a>
         <a href="#" class="social-btn" title="Codeforces"><i class="fas fa-code"></i></a>
       </div>
     </div>
-    <form class="contact-form" onsubmit="return false;">
-      <div class="form-group"><input type="text" placeholder="Your Name" required/></div>
-      <div class="form-group"><input type="email" placeholder="Your Email" required/></div>
-      <div class="form-group"><textarea rows="5" placeholder="Your Message" required></textarea></div>
+    <form class="contact-form" id="contactForm" onsubmit="sendEmail(event)">
+      <div class="form-group"><input type="text" id="senderName" placeholder="Your Name" required/></div>
+      <div class="form-group"><input type="email" id="senderEmail" placeholder="Your Email" required/></div>
+      <div class="form-group"><textarea id="senderMessage" rows="5" placeholder="Your Message" required></textarea></div>
       <button class="form-submit" type="submit">Send Message &nbsp;<i class="fas fa-paper-plane"></i></button>
     </form>
+    <script>
+    function sendEmail(e) {
+      e.preventDefault();
+      const name = document.getElementById('senderName').value.trim();
+      const email = document.getElementById('senderEmail').value.trim();
+      const message = document.getElementById('senderMessage').value.trim();
+      const subject = encodeURIComponent('Portfolio Message from ' + name);
+      const body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\nMessage:\n' + message);
+      window.location.href = 'mailto:ataur.rahman.33660@gmail.com?subject=' + subject + '&body=' + body;
+    }
+    </script>
   </div>
 </section>
 
